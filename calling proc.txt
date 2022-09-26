@@ -1,0 +1,11 @@
+DECLARE
+            CURSOR inserts_cursor IS
+            select contract_id 
+            FROM contracts;
+
+BEGIN
+        
+        FOR installment_record IN inserts_cursor LOOP
+        insert_installment_paid( installment_record.contract_id);
+        END LOOP;
+END;
